@@ -1,13 +1,17 @@
+import { useParams } from 'react-router-dom';
 import styles from './user.module.css';
 
 /* eslint-disable-next-line */
 export interface UserProps {}
 
 export function User(props: UserProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to User!</h1>
-    </div>
+
+    const { userId } = useParams();
+
+    return (
+        <div className={styles['container']}>
+            <h1>User: {userId}</h1>
+        </div>
   );
 }
 
