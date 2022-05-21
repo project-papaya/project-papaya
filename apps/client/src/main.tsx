@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Papaya from './pages/papaya/papaya';
-import User from './pages/user/user';
-import Subverse from './pages/subverse/subverse';
-import Edit from './pages/edit/edit';
+import { Papaya } from './pages/papaya';
+import { User } from './pages/user';
+import { Subverse } from './pages/subverse';
+import { Edit } from './pages/edit';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
