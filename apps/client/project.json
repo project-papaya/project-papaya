@@ -8,7 +8,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
+        "compiler": "swc",
         "outputPath": "dist/apps/client",
         "index": "apps/client/src/index.html",
         "baseHref": "/",
