@@ -1,14 +1,22 @@
-import styles from './editor.module.css';
+import * as monaco from 'monaco-editor';
+import { useCallback } from 'react';
 
 /* eslint-disable-next-line */
 export interface EditorProps {}
 
 export function Editor(props: EditorProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to Editor!</h1>
-    </div>
-  );
+
+    const ref = useCallback((node: HTMLElement | null) => {
+        if (node !== null) {
+            monaco.editor.create(node, {
+                language: 'typescript'
+            })
+        }
+    }, [])
+
+    return (
+        <div ref={ref} className='h-100' />
+    );
 }
 
 export default Editor;

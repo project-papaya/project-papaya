@@ -1,14 +1,14 @@
-import styles from './edit.module.css';
+import { Editor } from "../../components/editor";
 
 /* eslint-disable-next-line */
 export interface EditProps {}
 
 export function Edit(props: EditProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to Edit!</h1>
-    </div>
-  );
+    return (
+        <div className="vh-100">
+            <Editor />
+        </div>
+    );
 }
 
 export default Edit;
