@@ -6,14 +6,10 @@ const { merge } = require('webpack-merge');
 module.exports = (config, context) => {
     return merge(config, {
         plugins: [new MonacoWebpackPlugin()],
-        /*
-        module: {
-            rules: [
-                {
-                    test: /\.css$/i,
-                    use: ['style-loader', 'css-loader'],
-                },
-            ],
-        }, */
+        devServer: {
+            proxy: {
+                '/graphql': 'http://localhost:3333',
+            },
+        },
     });
 };

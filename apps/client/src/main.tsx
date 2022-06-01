@@ -1,10 +1,10 @@
-import { StrictMode } from 'react';
+import React, { StrictMode, Suspense } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Papaya } from './pages/papaya';
-import { User } from './pages/user';
-import { Subverse } from './pages/subverse';
-import { Edit } from './pages/edit';
+const Papaya = React.lazy(() => import('./pages/papaya/papaya'));
+const User = React.lazy(() => import('./pages/user/user'));
+const Subverse = React.lazy(() => import('./pages/subverse/subverse'));
+const Edit = React.lazy(() => import('./pages/edit/edit'));
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -16,10 +16,22 @@ root.render(
     <StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/:userId" element={<User />} />
-                <Route path="/:userId/:subverseId" element={<Subverse />} />
-                <Route path="/:userId/:subverseId/edit" element={<Edit />} />
-                <Route index element={<Papaya />} />
+                <Route path="/:userId" element={
+                    <Suspense fallback={"Loading"}>
+                        <User />
+                    </Suspense>} />
+                <Route path="/:userId/:subverseId" element={
+                    <Suspense fallback={"Loading"}>
+                        <Subverse />
+                    </Suspense>} />
+                <Route path="/:userId/:subverseId/edit" element={
+                    <Suspense fallback={"Loading"}>
+                        <Edit />
+                    </Suspense>} />
+                <Route index element={
+                    <Suspense fallback={"Loading"}>
+                        <Papaya />
+                    </Suspense>} />
             </Routes>
         </BrowserRouter>
     </StrictMode>
